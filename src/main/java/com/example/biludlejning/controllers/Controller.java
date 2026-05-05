@@ -1,6 +1,7 @@
 package com.example.biludlejning.controllers;
 import com.example.biludlejning.models.Lejeaftale;
 import com.example.biludlejning.repos.BilRepo;
+import com.example.biludlejning.repos.LejeaftaleRepo;
 import com.example.biludlejning.services.LejeaftaleService;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,11 +13,13 @@ public class Controller {
 
     private final LejeaftaleService service;
     private final BilRepo bilRepo;
+    private final LejeaftaleRepo lejeRepo;
 
 
-    public Controller(LejeaftaleService service, BilRepo bilRepo) {
+    public Controller(LejeaftaleService service, BilRepo bilRepo, LejeaftaleRepo lejeRepo) {
         this.service = service;
         this.bilRepo = bilRepo;
+        this.lejeRepo = lejeRepo;
     }
 
 
@@ -45,6 +48,10 @@ public class Controller {
 
     }
 
-
-
+    @GetMapping("/aktivelejeaftaler")
+    public String aftaler(Model model){
+        model.addAttribute("aftaler", lejeRepo.findAll());
+        model.addAttribute("service", service);
+        return "aftaler";
+    }
 }

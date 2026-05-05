@@ -62,6 +62,18 @@ public class LejeaftaleService {
         return true;
     }
 
+    public boolean erAktiv(Lejeaftale aftale) {
+
+        if (aftale.getStartDato() == null || aftale.getSlutDato() == null) {
+            return false;
+        }
+
+        LocalDate iDag = LocalDate.now();
+
+        return !iDag.isBefore(aftale.getStartDato()) &&
+                !iDag.isAfter(aftale.getSlutDato());
+    }
+
 
 
 }
