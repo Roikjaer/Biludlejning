@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+
+</head>
+<body>
+
+<form action="/lejeaftale" method="post" th:object="${lejeaftale}">
+
+    Bil ID: <input type="number" th:field="*{bilId}"><br>
+    Kunde ID: <input type="number" th:field="*{kundeId}"><br>
+    Start dato: <input type="date" th:field="*{startDato}"><br>
+    Slut dato: <input type="date" th:field="*{slutDato}"><br>
+
+    <button type="submit">Opret</button>
+</form>
+
+</body>
+</html>
