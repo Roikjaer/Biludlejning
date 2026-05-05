@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class MockLejeaftaleRepo {
+public class MockLejeaftaleRepo implements LejeaftaleRepo {
 
     private final List<Lejeaftale> aftaler = new ArrayList<>();
 

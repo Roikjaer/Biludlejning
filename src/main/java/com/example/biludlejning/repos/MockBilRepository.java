@@ -3,7 +3,6 @@ package com.example.biludlejning.repos;
 import com.example.biludlejning.models.Bil;
 import com.example.biludlejning.models.Status;
 import org.springframework.stereotype.Repository;
-
 import java.util.ArrayList;
 import java.util.List;
 

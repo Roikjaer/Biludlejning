@@ -8,16 +8,28 @@
 
 </head>
 <body>
-
+<p th:if="${error}" th:text="${error}" style="color:red;"></p>
 <form action="/lejeaftale" method="post" th:object="${lejeaftale}">
 
-    Bil ID: <input type="number" th:field="*{bilId}"><br>
-    Kunde ID: <input type="number" th:field="*{kundeId}"><br>
+    Bil:
+    <select th:field="*{bilId}">
+        <option th:each="bil : ${biler}"
+                th:value="${bil.id}"
+                th:text="${bil.brand + ' ' + bil.model}">
+        </option>
+    </select><br>
+
+    Kunde:
+    <select th:field="*{kundeId}">
+        <option value="1">Kunde 1</option>
+        <option value="2">Kunde 2</option>
+    </select><br>
     Start dato: <input type="date" th:field="*{startDato}"><br>
     Slut dato: <input type="date" th:field="*{slutDato}"><br>
 
     <button type="submit">Opret</button>
 </form>
+<p th:if="${success}" th:text="${success}" style="color:green;"></p>
 
 </body>
 </html>

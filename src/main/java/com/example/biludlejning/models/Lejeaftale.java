@@ -1,13 +1,17 @@
 package com.example.biludlejning.models;
 
 import java.time.LocalDate;
-
+import org.springframework.format.annotation.DateTimeFormat;
 public class Lejeaftale {
 
     private int id;
     private int bilId;
     private int kundeId;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate startDato;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate slutDato;
 
     public Lejeaftale(int id, int bilId, int kundeId, LocalDate startDato, LocalDate slutDato) {
@@ -19,7 +23,6 @@ public class Lejeaftale {
     }
 
     public Lejeaftale() {}
-
 
     //Getters
     public int getId(){
